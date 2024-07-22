@@ -19,12 +19,15 @@ public class PostController {
         this.postService = postService;
     }
 
+    //http://localhost:8082/api/v1/posts
     @PostMapping
     public ResponseEntity<Post>savePost(@RequestBody Post post){
       Post newPost=  postService.savePost(post);
     return new ResponseEntity<>(newPost, HttpStatus.CREATED);
 }
 
+
+    //http://localhost:8082/api/v1/posts/{postId}
 @GetMapping("/{postId}")
 public Post getPostByPostId(@PathVariable String postId){
       Post postById = postService.findPostById(postId);

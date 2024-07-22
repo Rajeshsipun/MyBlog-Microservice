@@ -2,6 +2,7 @@ package com.microservice.post.service;
 
 import com.microservice.post.entity.Post;
 import com.microservice.post.repository.PostRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -11,11 +12,9 @@ import java.util.UUID;
 @Service
 public class PostServiceIMPL implements PostService{
 
+    @Autowired
     private PostRepository postRepository ;
 
-    public PostServiceIMPL(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
 
     @Override
     public Post savePost(Post post) {
