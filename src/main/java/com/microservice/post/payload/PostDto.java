@@ -1,29 +1,38 @@
-package com.microservice.post.entity;
+package com.microservice.post.payload;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "posts")
-public class Post {
-    @Id
-    @Column(name = "id", nullable = false)
-    private String id;
+import java.util.List;
 
-    @Column(name = "title")
+public class PostDto {
+
+
+    private String postId;
     private String title;
-
-    @Column(name = "description")
     private String description;
-
-    @Column(name = "content")
     private String content;
+    List<CommentDto> comments;
 
 
 
+    public String getPostId() {
+        return postId;
+    }
 
+    public void setPostId(String postId) {
+        this.postId = postId;
+    }
+
+    public List<CommentDto> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentDto> comments) {
+        this.comments = comments;
+    }
 
     public String getContent() {
         return content;
@@ -47,14 +56,6 @@ public class Post {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
 }
